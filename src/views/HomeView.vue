@@ -1,18 +1,32 @@
 <template>
+  <img alt="Vue logo" src="../assets/logo.png">
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Form />
+    <List class="ml-3" />
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import { onBeforeMount } from 'vue'
+import { useStore } from 'vuex'
+import List from '@/components/ListBlock.vue'
+import Form from '@/components/FormBlock.vue'
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+const store = useStore()
+
+onBeforeMount(() => {
+  store.dispatch('fetchData')
+  store.dispatch('fetchLists')
+})
+
 </script>
+
+<style lang="scss" scoped>
+.home{
+  display: flex;
+}
+
+.ml-3 {
+  margin-left: 24px;
+}
+</style>

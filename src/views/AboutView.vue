@@ -1,5 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <span>by V. Lukoyanov (c) 2022</span>
 </template>
+
+<script>
+export default {
+  name: 'AboutView'
+}
+</script>
+
+<style scoped>
+
+</style>
